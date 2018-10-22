@@ -39,7 +39,7 @@
 				      <td>10/09/1998</td>
 				      <td>a@gmail.com</td>
 				      <td>0123456789</td>
-				      <td><a href="/ThiTracNghiem/test-detail.jsp"><i class="far fa-eye"></i></a></td>
+				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
 				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
 				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
 				    </tr>
@@ -50,7 +50,7 @@
 				      <td>10/09/1998</td>
 				      <td>b@gmail.com</td>
 				      <td>0123456789</td>
-				      <td><a href="/ThiTracNghiem/test-detail.jsp"><i class="far fa-eye"></i></a></td>
+				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
 				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
 				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
 				    </tr>
@@ -61,7 +61,7 @@
 				      <td>10/09/1998</td>
 				      <td>c@gmail.com</td>
 				      <td>0123456789</td>
-				      <td><a href="/ThiTracNghiem/test-detail.jsp"><i class="far fa-eye"></i></a></td>
+				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
 				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
 				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
 				    </tr>
@@ -72,7 +72,7 @@
 				      <td>10/09/1998</td>
 				      <td>d@gmail.com</td>
 				      <td>0123456789</td>
-				      <td><a href="/ThiTracNghiem/test-detail.jsp"><i class="far fa-eye"></i></a></td>
+				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
 				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
 				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
 				    </tr>

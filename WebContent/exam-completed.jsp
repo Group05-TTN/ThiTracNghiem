@@ -3,15 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-	<jsp:include page="header.jsp"></jsp:include>
-	<link href="./css/admin.css" rel="stylesheet">
 </head>
-
 <body>
 	<jsp:include page="test-header.jsp"></jsp:include>
-	<main role="main">
+	<main role="main">		
 		<div class="container-fluid mt-dashbroad">
 			<div class="row">
 				<div class="col-md-3 mh-dashbroad">
@@ -24,12 +20,11 @@
 							<p>Số câu hỏi: 10</p>
 							<p>Thời gian bắt đầu: 20-10-2018 07:30</p>
 							<p>Thời gian kết thúc: 20-10-2018 22:00</p>
-							<h1 class="text-center" id="timer-main"></h1>
 						</div>
 					</div>
-					<a role="button" href="/ThiTracNghiem" class="btn btn-primary btn-lg btn-block">Trở về</a>
+					<button type="button" class="btn btn-primary btn-lg btn-block">Trở về</button>
 				</div>
-				<div class="col-md-9" style="overflow-y: scroll;height:580px;">
+				<div class="col-md-9">
 					<h2>Đề thi Toán 1</h2>
 					<hr>
 					

@@ -43,7 +43,7 @@
 				    <a href="#"><i class="fa fa-trash-alt"></i></a>
 				</div>
 				<br>
-				<a href="/ThiTracNghiem/view-question.jsp" role="button" class="btn btn-outline-secondary mt-2">&larr;Back</a>
+				<a href="/ThiTracNghiem/list-question.jsp" role="button" class="btn btn-outline-secondary mt-2">&larr;Back</a>
 		    </div>
 		  </div>
 		</div>

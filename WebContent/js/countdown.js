@@ -1,17 +1,19 @@
 
 var counter = 0;
-var timeleft = 5;
+var timeleft = 15;
 
 window.onload = function(){
 	setup();
 };
 
 function convertSeconds(s){
+	var hou = Math.floor(s / 3600);
 	var min = Math.floor(s / 60);
 	var sec = s % 60;
+	if(hou<10) hou = "0" + hou;
 	if(min<10) min = "0" + min;
 	if(sec<10) sec = "0" + sec;
-	return min + ":" + sec;
+	return hou + ":" + min + ":" + sec;
 }
 // Update the count down every 1 second
 function setup(){

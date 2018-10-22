@@ -16,12 +16,17 @@
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-. form-exam {
-	overflow: scroll;
+.form-exam {
+	overflow-y: scroll;
+	height:650px;
 }
 
-. congratulation{
+.congratulation{
 	width:300px;
 	height:200px;
 }
 
+.done{
+	background-color:#007BFF;
+	color:#fff;
+} 

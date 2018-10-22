@@ -111,7 +111,7 @@
 				<hr>
 				<!-- End List question -->
 				<br>
-				<a href="/ThiTracNghiem/view-test.jsp" role="button" class="btn btn-outline-secondary mt-2">&larr;Back</a>
+				<a href="/ThiTracNghiem/list-test.jsp" role="button" class="btn btn-outline-secondary mt-2">&larr;Back</a>
 		    	
 				<nav aria-label="Page navigation example" class="float-right">
 				  <ul class="pagination">
