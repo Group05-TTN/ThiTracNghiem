@@ -5,7 +5,6 @@
 <html>
 <head>
 <jsp:include page="header.jsp"></jsp:include>
-<link href="./css/admin.css" rel="stylesheet">
 </head>
 <body>
 	<header>

@@ -5,7 +5,6 @@
 <html>
 <head>
 <jsp:include page="header.jsp"></jsp:include>
-<link href="./css/admin.css" rel="stylesheet">
 </head>
 <body>
 	<jsp:include page="test-header.jsp"></jsp:include>
@@ -18,34 +17,43 @@
 		    	<hr>
 		    	<form>
 				  <div class="form-row">
-				    <div class="form-group col-md-6">
-				      <label for="inputEmail4">Họ tên</label>
-				      <input type="text" class="form-control">
+				    <div class="form-group col-md-3">
+				    	<img class="img-fluid mx-auto" src="images/default-avatar.png" alt="Generic placeholder image" width=200px height= 200px>
+				    	<input type="file" class="form-control-file" id="exampleFormControlFile1">
 				    </div>
-				    <div class="form-group col-md-6">
-				      <label for="inputPassword4">Mã số sinh viên</label>
-				      <input type="text" class="form-control">
+				    <div class="form-group col-md-9">
+				    	<div class="form-group row">
+						    <label for="inputEmail3" class="col-sm-2 col-form-label">Họ tên</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" id="inputEmail3">
+						    </div>
+					  	</div>
+					  	<div class="form-group row">
+						    <label for="inputEmail3" class="col-sm-2 col-form-label">Mã số sv</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" id="inputEmail3">
+						    </div>
+					  	</div>
+					  	<div class="form-group row">
+						    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+						    <div class="col-sm-10">
+						      <input type="email" class="form-control" id="inputEmail3">
+						    </div>
+					  	</div>
+					  	<div class="form-group row">
+						    <label for="inputEmail3" class="col-sm-2 col-form-label">Số điện thoại</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" id="inputEmail3">
+						    </div>
+					  	</div>
+					  	<div class="form-group row">
+						    <label for="inputEmail3" class="col-sm-2 col-form-label">Năm sinh</label>
+						    <div class="col-sm-10">
+						      <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control" id="inputEmail3">
+						    </div>
+					  	</div>
 				    </div>
 				  </div>
-				  <div class="form-row">
-				    <div class="form-group col-md-6">
-				      <label for="inputEmail4">Email</label>
-				      <input type="email" id="inputEmail" class="form-control" required autofocus>
-				    </div>
-				    <div class="form-group col-md-6">
-				      <label for="inputPassword4">Số điện thoại</label>
-				      <input type="text" class="form-control">
-				    </div>
-				  </div>
-				  <div class="form-row">
-				    <div class="form-group col-md-6">
-				      <label for="inputEmail4">Năm sinh</label>
-				      <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
-				    </div>
-				    
-				  </div>
-				  
-				  
 				  <h5>Danh sách đăng kí lớp học</h5>
 			    	<hr>
 			    	<table class="table table-striped">

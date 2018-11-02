@@ -5,7 +5,6 @@
 <html>
 <head>
 <jsp:include page="header.jsp"></jsp:include>
-<link href="./css/admin.css" rel="stylesheet">
 <script type="text/javascript" src="./js/countdown.js"></script>
 <style type="text/css">
 </style>

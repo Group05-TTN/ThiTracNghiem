@@ -47,7 +47,6 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <br>
       <a href="/ThiTracNghiem">Home page</a><br>
-      <a href="/ThiTracNghiem/signup.jsp">Đăng ký</a>
       <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
     </form>
 </body>
