@@ -14,11 +14,11 @@ public class DBconnect {
 			String connectionUrl = "jdbc:mysql://localhost/thi_trac_nghiem?characterEncoding=UTF-8";
 			con = DriverManager.getConnection(connectionUrl,"root", "");
 			
-			String query = "SELECT * FORM STUDENTS";
-			PreparedStatement ps = con.prepareCall(query);
+			String query = "SELECT * FROM STUDENTS";
+			PreparedStatement ps = con.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()){
-				System.out.print(rs.getInt("mssv"));
+				System.out.print(rs.getString("mssv"));
 			}
 			
 		}catch(Exception e) {

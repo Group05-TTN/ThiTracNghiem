@@ -84,6 +84,12 @@
 					      <input type="date" name="bday" max="3000-12-31" min="1000-01-01" class="form-control">
 					    </div>
 					  </div>
+					  <div class="form-group row">
+					    <label for="inputEmail3" class="col-sm-2 col-form-label">Số lần làm tối đa:</label>
+					    <div class="col-sm-10">
+					      <input type="number" name="numQuestion" step="1"  min="1" max="500" value="1" class="form-control">
+					    </div>
+					  </div>
 					  <button type="submit" class="btn btn-primary btn-block">Tạo đề thi</button>
 					  <a class="btn btn-secondary btn-block" href="/ThiTracNghiem/list-test.jsp" role="button">Thoát</a>
 				</form>

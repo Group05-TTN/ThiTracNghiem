@@ -15,5 +15,7 @@
 			<attribute name="javadoc_location" value="https://docs.oracle.com/javaee/7/api/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/HocTap/Web Programming/Project/ThiTracNghiem/WebContent/WEB-INF/lib/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="D:/HocTap/Web Programming/Project/ThiTracNghiem/WebContent/WEB-INF/lib/sqljdbc41.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

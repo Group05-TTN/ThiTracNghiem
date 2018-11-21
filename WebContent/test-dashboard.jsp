@@ -8,34 +8,19 @@
 
 </head>
 <body>
-	<% String dashbroadContent = null;
-		dashbroadContent = (String)request.getAttribute("dashbroadContent");%>
 	<div class="col-md-3 mh-dashbroad">
 		<div class="list-group nav">
-			<% if(dashbroadContent.equals("question-manager")){ %>
-			<a href="/ThiTracNghiem/question-manager" class="list-group-item list-group-item-action active">
-				Quản lý câu hỏi
+			<a href="/ThiTracNghiem/list-question.jsp" class="list-group-item list-group-item-action">
+				<i class="fas fa-quidditch"></i> Quản lý câu hỏi
 			</a>
-			<% } else{ %>
-			<a href="/ThiTracNghiem/question-manager" class="list-group-item list-group-item-action">
-				Quản lý câu hỏi
+			<a href="/ThiTracNghiem/list-test.jsp" class="list-group-item list-group-item-action">
+				<i class="fas fa-list-alt"></i> Quản lý đề thi
 			</a>
-			<% } %>
-			<% if(dashbroadContent.equals("test-manager")){ %>
-			<a href="/ThiTracNghiem/test-manager" class="list-group-item list-group-item-action active">
-				Quản lý đề thi
-			</a>
-			<% } else{ %>
-			<a href="/ThiTracNghiem/test-manager" class="list-group-item list-group-item-action">
-				Quản lý đề thi
-			</a>
-			<% } %>
-
 			<a href="/ThiTracNghiem/list-class.jsp" class="list-group-item list-group-item-action">
-				Quản lý lớp học
+				<i class="fas fa-users"></i> Quản lý lớp học
 			</a>
 			<a href="/ThiTracNghiem/list-student.jsp" class="list-group-item list-group-item-action">
-				Quản lý sinh viên
+				<i class="fas fa-address-card"></i> Quản lý thí sinh
 			</a>
 		</div>
 	</div>

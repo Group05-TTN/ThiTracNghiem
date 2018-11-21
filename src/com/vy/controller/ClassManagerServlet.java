@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.vy.dao.DBconnect;
 
-@WebServlet("/question-manager")
-public class QuestionManagerServlet extends HttpServlet {
+@WebServlet("/class-manager")
+public class ClassManagerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("dashbroadContent", "question-manager");
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/list-question.jsp");
+		request.setAttribute("dashbroadContent", "class-manager");
+
+		RequestDispatcher rd = request.getRequestDispatcher("/list-class.jsp");
 		rd.forward(request, response);
 	}
 

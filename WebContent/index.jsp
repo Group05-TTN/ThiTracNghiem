@@ -23,7 +23,7 @@
           <div class="col-md-3 test-box text-center">
           	<div class="test-box-border">
             <img class="rounded-circle" src="images/math2.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Toán 1</h2>
+            <h3>Toán 1</h3>
             <p>Kiển tra Hình học lần 1</p>
             <div>Ngày bắt đầu: 20-10-2018 14:00</div>
             <div>Ngày kết thúc: 20-10-2018 22:00</div>
@@ -37,7 +37,7 @@
           <div class="col-md-3 test-box text-center">
          <div class="test-box-border">
             <img class="rounded-circle" src="images/math4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Toán 2</h2>
+            <h3>Toán 2</h3>
             <p>Kiển tra Hình học lần 2</p>
             <div>Ngày bắt đầu: 20-10-2018 14:00</div>
             <div>Ngày kết thúc: 20-10-2018 22:00</div>
@@ -51,7 +51,7 @@
           <div class="col-md-3 test-box text-center">
           <div class="test-box-border">
             <img class="rounded-circle" src="images/english1.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Anh văn 1</h2>
+            <h3>Anh văn 1</h3>
             <p>Kiển tra Anh văn 1 lần 1</p>
            <div>Ngày bắt đầu: 20-10-2018 14:00</div>
             <div>Ngày kết thúc: 20-10-2018 22:00</div>
@@ -64,7 +64,7 @@
           <div class="col-md-3 test-box text-center">
           <div class="test-box-border">
             <img class="rounded-circle" src="images/cntt4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Tin học</h2>
+            <h3>Tin học</h3>
             <p>Kiển tra tin học cơ sở</p>
             <div>Ngày bắt đầu: 20-10-2018 14:00</div>
             <div>Ngày kết thúc: 20-10-2018 22:00</div>
@@ -77,7 +77,7 @@
           <div class="col-md-3 test-box text-center">
           <div class="test-box-border">
             <img class="rounded-circle" src="images/cntt4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Tin học</h2>
+            <h3>Tin học</h3>
             <p>Kiển tra tin học cơ sở</p>
             <div>Ngày bắt đầu: 20-10-2018 14:00</div>
             <div>Ngày kết thúc: 20-10-2018 22:00</div>
@@ -90,7 +90,7 @@
           <div class="col-md-3 test-box text-center">
           <div class="test-box-border">
             <img class="rounded-circle" src="images/cntt4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h2>Tin học</h2>
+            <h3>Tin học</h3>
             <p>Kiển tra tin học cơ sở</p>
             <div>Ngày bắt đầu: 20-10-2018 14:00</div>
             <div>Ngày kết thúc: 20-10-2018 22:00</div>
