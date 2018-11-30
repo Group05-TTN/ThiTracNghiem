@@ -7,66 +7,50 @@
 <jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
+	<%@page import="com.vy.dao.QuizDAO,com.vy.dao.SubjectDAO,java.util.*"%>
+	<%request.setCharacterEncoding("UTF-8");%>
 	<jsp:include page="test-header.jsp"></jsp:include>
     <main role="main">
     	<div class="container-fluid mt-dashbroad">
 		  <div class="row">
 		    <jsp:include page="test-dashboard.jsp"></jsp:include>
 		    <div class="col-md-9">
-		    	<a class="btn btn-primary float-right" href="/ThiTracNghiem/add-question.jsp" role="button">Tạo câu hỏi</a>
+		    	<a class="btn btn-primary float-right" 
+		    	href="/ThiTracNghiem/quiz?command=add" role="button">Tạo câu hỏi</a>
 		    	<h2>Danh sách câu hỏi</h2>
 		    	<hr>
+		    	<c:if test="${notification!=null}">
+			    	<center><h5 style="color:green">Success: ${notification}</h5></center>
+		    	</c:if>
+		    	<form>
 		    	<table class="table table-striped">
 				  <thead class="thead-light">
 				    <tr>
 				      <th scope="col">STT</th>
-				      <th scope="col">Thời gian thêm</th>
 				      <th scope="col">Môn học</th>
 				      <th scope="col">Nội dung</th>
+				      <th scope="col">Level</th>
 				      <th scope="col">Xem</th>
 				      <th scope="col">Sửa</th>
 				      <th scope="col">Xóa</th>
 				    </tr>
 				  </thead>
 				  <tbody>
+				  <c:forEach items="${listQuiz}" var="quiz" varStatus="loop">
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>20-10-2018 14:15</td>
-				      <td>Toán học</td>
-				      <td>Trong các mệnh đề sau đây, mệnh ...</td>
-				      <td><a href="/ThiTracNghiem/question-detail.jsp"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/edit-question.jsp"><i class="fa fa-edit"></i></a></td>
-				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-alt"></i></a></td>
+				      <th scope="row">${loop.index+1}</th>
+				      <td>${SubjectDAO.getSubjectByQuizId(quiz.id).name}</td>
+				      <td>${quiz.content}</td>
+				      <td>${quiz.level}</td>
+				      <td><a href="/ThiTracNghiem/quiz?command=update&id=${quiz.id}"><i class="far fa-eye"></i></a></td>
+				      <td><a href="/ThiTracNghiem/quiz?command=update&id=${quiz.id}"><i class="fa fa-edit"></i></a></td>
+				      <td><a href="/ThiTracNghiem/quiz?command=delete&id=${quiz.id}"><i class="fa fa-trash-alt"></i></a></td>
 				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>20-10-2018 14:20</td>
-				      <td>Toán học</td>
-				      <td>Kết quả của phép tính sau ...</td>
-				      <td><a href="/ThiTracNghiem/question-detail.jsp"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/edit-question.jsp"><i class="fa fa-edit"></i></a></td>
-				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-alt"></i></a></td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>20-10-2018 14:35</td>
-				      <td>Toán học</td>
-				      <td>Cho hình bình hành ....</td>
-				      <td><a href="/ThiTracNghiem/question-detail.jsp"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/edit-question.jsp"><i class="fa fa-edit"></i></a></td>
-				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-alt"></i></a></td>
-				    </tr>
-				    <tr>
-				      <th scope="row">4</th>
-				      <td>20-10-2018 15:44</td>
-				      <td>Toán học</td>
-				      <td>Tam giác đều có tính chất ...</td>
-				      <td><a href="/ThiTracNghiem/question-detail.jsp"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/edit-question.jsp"><i class="fa fa-edit"></i></a></td>
-				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-trash-alt"></i></a></td>
-				    </tr>
+				  </c:forEach>
 				  </tbody>
-				</table><br>
+				</table>
+				</form>
+				<br>
 				<nav aria-label="Page navigation example" class="float-right">
 				  <ul class="pagination">
 				    <li class="page-item">
@@ -103,7 +87,7 @@
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+			        <a href="#" type="button" class="btn btn-danger" data-dismiss="modal">Delete</a>
 			      </div>
 			    </div>
 			  </div>

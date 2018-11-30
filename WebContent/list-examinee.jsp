@@ -7,11 +7,15 @@
 <jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
+	<%@page import="com.vy.dao.ExamineeDAO,java.util.*"%>
+	<%request.setCharacterEncoding("UTF-8");%>
 	<jsp:include page="test-header.jsp"></jsp:include>
     <main role="main">
     	<div class="container-fluid mt-dashbroad">
 		  <div class="row">
-		    <jsp:include page="test-dashboard.jsp"></jsp:include>
+		    <jsp:include page="test-dashboard.jsp">
+		    	<jsp:param name="dashbroadContent" value="${dashbroadContent}" />
+		    </jsp:include>
 		    <div class="col-md-9">
 		    	<a class="btn btn-primary float-right" href="/ThiTracNghiem/add-student.jsp" role="button">Thêm sinh viên</a>
 		    	<h2>Danh sách sinh viên</h2>
@@ -20,61 +24,24 @@
 				  <thead class="thead-light">
 				    <tr>
 				      <th scope="col">STT</th>
-				      <th scope="col">Mã sinh viên</th>
+				      <th scope="col">Số báo danh</th>
 				      <th scope="col">Họ tên</th>
-				      <th scope="col">Năm sinh</th>
-				      <th scope="col">Email</th>
-				      <th scope="col">Sđt</th>
 				      <th scope="col">Xem</th>
 				      <th scope="col">Sửa</th>
 				      <th scope="col">Xóa</th>
 				    </tr>
 				  </thead>
 				  <tbody>
+				  <c:forEach items="${listExaminee}" var="ex" varStatus="loop">
 				    <tr>
-				      <th scope="row">1</th>
-				      <td>16110123</td>
-				      <td>Nguyễn Văn A</td>
-				      <td>10/09/1998</td>
-				      <td>a@gmail.com</td>
-				      <td>0123456789</td>
+				      <th scope="row">${loop.index+1}</th>
+				      <td>${ex.id}</td>
+				      <td>${ex.username}</td>
 				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
 				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
 				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
 				    </tr>
-					<tr>
-				      <th scope="row">2</th>
-				      <td>16110123</td>
-				      <td>Nguyễn Văn B</td>
-				      <td>10/09/1998</td>
-				      <td>b@gmail.com</td>
-				      <td>0123456789</td>
-				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
-				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>16110123</td>
-				      <td>Nguyễn Văn C</td>
-				      <td>10/09/1998</td>
-				      <td>c@gmail.com</td>
-				      <td>0123456789</td>
-				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
-				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
-				    </tr>
-				    <tr>
-				      <th scope="row">4</th>
-				      <td>16110123</td>
-				      <td>Nguyễn Văn D</td>
-				      <td>10/09/1998</td>
-				      <td>d@gmail.com</td>
-				      <td>0123456789</td>
-				      <td><a href="/ThiTracNghiem/student-detail.jsp"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/add-student.jsp"><i class="fas fa-edit"></i></a></td>
-				      <td><a href="#" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a></td>
-				    </tr>
+				   </c:forEach>
 				  </tbody>
 				</table><br>
 				<nav aria-label="Page navigation example" class="float-right">
