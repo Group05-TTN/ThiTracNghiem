@@ -49,4 +49,28 @@ public class SubjectDAO {
 		}
 		return subject;
 	}
+	
+	public static Subject getSubjectByTestId(int id) {
+		Subject subject = new Subject();
+		try {
+			Connection con = DBconnect.getConnection();
+			String query = "SELECT * FROM SUBJECTS S\r\n" + 
+							"WHERE S.ID IN\r\n" + 
+							"(SELECT E.SUBJECTID FROM TESTS T, TEST_SECTION S, SECTIONS E\r\n" + 
+							"WHERE T.ID = S.TESTID\r\n" + 
+							"AND S.SECTIONID = E.ID\r\n" + 
+							"AND T.ID = ?)";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				subject.setId(rs.getInt("id"));
+				subject.setName(rs.getString("name"));
+				subject.setDescription(rs.getString("description"));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return subject;
+	}
 }

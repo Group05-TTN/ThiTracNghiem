@@ -113,6 +113,31 @@ public class QuizDAO {
 		return quiz;
 	}
 	
+	public static List<Quiz> getQuizzesBySectionId(int sectionId, int numQuiz) {
+		List<Quiz> list = new ArrayList<Quiz>();
+		try {
+			Connection con = DBconnect.getConnection();
+			String query = "SELECT * FROM QUIZZES WHERE SECTIONID = ? ORDER BY RAND() limit ?";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, sectionId);
+			ps.setInt(2, numQuiz);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Quiz quiz = new Quiz();
+				quiz.setId(rs.getInt("id"));
+				quiz.setContent(rs.getString("content"));
+				quiz.setLevel(rs.getString("level"));
+				quiz.setImage(rs.getString("image"));
+				quiz.setSection(rs.getInt("sectionId"));
+				quiz.setquizManagerId(rs.getInt("quizManagerId"));
+				list.add(quiz);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return list;
+	}
+	
 	public static List<Answer> getAnswerByQuizId(int id) {
 		List<Answer> listAns = new ArrayList<Answer>();
 		try {

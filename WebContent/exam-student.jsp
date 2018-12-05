@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="com.vy.dao.QuizDAO"%>
+<%@page import="com.vy.dao.SubjectDAO,java.util.*"%>
+<%@page import="com.vy.dao.SectionDAO"%>
+<%@page import="com.vy.dao.TestDAO"%>
+<%@page import="com.vy.model.Subject" %>
+<%@page import="com.vy.model.Section" %>
+<%@page import="com.vy.model.Quiz" %>
+<%@page import="com.vy.model.Test" %>
+<%@page import="com.vy.model.Answer" %>
 <!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="header.jsp"></jsp:include>
 <script type="text/javascript" src="./js/countdown.js"></script>
-<style type="text/css">
-</style>
 </head>
 <body>
 	<jsp:include page="test-header.jsp"></jsp:include>
@@ -16,146 +23,67 @@
 		  <div class="row">
 		    <div class="col-md-3 mh-dashbroad">
 					<div class="list-group">
-						<div class="list-group-item list-group-item-action active">Mã đề thi</div>
-						<div class="list-group-item list-group-item-action">
-							<p>Môn: Toán học</p>
-							<p>Tên đề thi: Kiểm tra hình học lần 1 </p>
-							<p>Thời lượng: ... &nbsp phút</p>
-							<p>Số câu hỏi: 10</p>
-							<p>Thời gian bắt đầu: 20-10-2018 07:30</p>
-							<p>Thời gian kết thúc: 20-10-2018 22:00</p>
-							<p>Thời gian còn lại:</p><h2 class="text-center" id="timer-main"></h2>
-							<input type="hidden" id="timeLimit" value="20">
+						<div class="list-group-item list-group-item-action active">Mã đề thi: ${test.id }</div>
+						<div class="list-group-item">
+						<p>Môn: <br>
+							Tên đề thi: ${test.name } <br>
+							Thời lượng: ${test.timeLimit } &nbsp phút<br>
+							Số câu hỏi: ${test.numQuiz }<br>
+							Thời gian bắt đầu: ${test.dateOpen} &nbsp ${test.timeOpen }<br>
+							Thời gian kết thúc: ${test.dateClose} &nbsp ${test.timeClose }<br>
+							Thời gian còn lại:</p>
+							<input type="hidden" id="timeLimit" value="${test.timeLimit}">
+							<div class="row" style="margin-left:25px">
+							  <div id="hour" class="col-sm-3 countdown-clock"></div>
+							  <div id="minute" class="col-sm-3 countdown-clock"></div>
+							  <div id="second" class="col-sm-3 countdown-clock"></div>
+							</div>
+							<div style="margin:30px">
+								 <c:forEach var = "i" begin = "1" end = "${test.numQuiz}">
+									<div class="float-left quiz-box"><a href="#">${i}</a></div>
+								</c:forEach>
+							</div>
 						</div>
+						<br>
+						<button type="button" class="btn btn-primary btn-lg btn-block">Nộp bài</button>
 					</div>
-					<button type="button" class="btn btn-primary btn-lg btn-block">Nộp bài</button>
-					<br>
-					<table class="table table-bordered">
-					  <tbody>
-					    <tr>
-					      <td class="done">1</td>
-					      <td class="done">2</td>
-					      <td class="done">3</td>
-					      <td class="done">4</td>
-					      <td class="done">5</td>
-					      <td class="done">6</td>
-					      <td class="done">7</td>
-					      <td class="done">8</td>
-					    </tr>
-					   <tr>
-					   	  <td class="done">9</td>
-					      <td class="done">10</td>
-					      <td class="done">11</td>
-					      <td class="done">12</td>
-					      <td class="done">13</td>
-					      <td class="done">14</td>
-					      <td>15</td>
-					      <td>16</td>
-						</tr>
-						<tr>
-						 <td>17</td>
-					      <td>18</td>
-					      <td>19</td>
-					      <td>20</td>
-					    </tr>
-					  </tbody>
-					</table>
-					
 				</div>
 		    <div class="col-md-9 form-exam">
-		    	<h2>Đề: Kiển tra Hình học lần 1</h2>
+		    	<h2>Đề: ${test.name}</h2>
 		    	<hr>
 		    	<br>
 		    	<!-- List question -->
+		    	<%List<Quiz> listQuiz = (ArrayList)request.getAttribute("listQuiz"); %>
+		    	<%List<Answer> listAnswer = (ArrayList)request.getAttribute("listAnswer"); %>
 		    	<div>
-		    		<p><b>Câu hỏi 1: &nbsp</b>Trong các mệnh đề sau đây, mệnh đề nào đúng?</p>
-			    	<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>A.</b> Phép vị tự là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>B.</b> Có một phép đối xứng trục là phép đồng nhất.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>C.</b> Phép đồng dạng là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>D.</b>Thực hiện liên tiếp phép quay và phép vị tự ta được phép đồng dạng.	
-					  </label>
-					</div>
-					<hr>
-					<p><b>Câu hỏi 2: &nbsp</b>Trong các mệnh đề sau đây, mệnh đề nào đúng?</p>
-			    	<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>A.</b> Phép vị tự là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>B.</b> Có một phép đối xứng trục là phép đồng nhất.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>C.</b> Phép đồng dạng là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>D.</b>Thực hiện liên tiếp phép quay và phép vị tự ta được phép đồng dạng.	
-					  </label>
-					</div>
-					<hr>
-					<p><b>Câu hỏi 3: &nbsp</b>Trong các mệnh đề sau đây, mệnh đề nào đúng?</p>
-			    	<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>A.</b> Phép vị tự là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>B.</b> Có một phép đối xứng trục là phép đồng nhất.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>C.</b> Phép đồng dạng là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>D.</b>Thực hiện liên tiếp phép quay và phép vị tự ta được phép đồng dạng.	
-					  </label>
-					</div>
-					<hr>
-					<p><b>Câu hỏi 4: &nbsp</b>Trong các mệnh đề sau đây, mệnh đề nào đúng?</p>
-			    	<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>A.</b> Phép vị tự là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>B.</b> Có một phép đối xứng trục là phép đồng nhất.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>C.</b> Phép đồng dạng là một phép dời hình.
-					  </label>
-					</div>
-					<div class="form-check">
-					  <label class="form-check-label">
-					    <input type="radio" class="form-check-input" name="optradio"><b>D.</b>Thực hiện liên tiếp phép quay và phép vị tự ta được phép đồng dạng.	
-					  </label>
-					</div>
-					<hr>
+		    		<%for(int i=0,k=0; i < listQuiz.size() ;i++,k+=4){ %>
+		    			<p><b>Câu hỏi <%=i+1 %>: &nbsp</b><%=listQuiz.get(i).getContent() %></p>
+				    	<div class="form-check">
+						  <label class="form-check-label">
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>A.</b>
+						    <%=listAnswer.get(k).getContent() %>
+						  </label>
+						</div>
+						<div class="form-check">
+						  <label class="form-check-label">
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>B.</b>
+						    <%=listAnswer.get(k+1).getContent() %>
+						  </label>
+						</div>
+						<div class="form-check">
+						  <label class="form-check-label">
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>C.</b>
+						    <%=listAnswer.get(k+2).getContent() %>
+						  </label>
+						</div>
+						<div class="form-check">
+						  <label class="form-check-label">
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>D.</b>
+						    <%=listAnswer.get(k+3).getContent() %>
+						  </label>
+						</div>
+						<hr>
+					<%} %>
 		    	</div>
 		    	<!-- end list question -->
 				<nav aria-label="Page navigation example" class="float-right">

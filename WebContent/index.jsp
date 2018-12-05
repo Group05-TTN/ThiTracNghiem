@@ -32,12 +32,12 @@
 	        	<div class="col-md-3 test-box text-center">
 		          	<div class="test-box-border">
 		            <img class="rounded-circle" src="images/cntt<%=test.getId()%12+5%>.jpg" alt="Generic placeholder image" width="140" height="140">
-		            <h3>Mon hoc</h3>
+		            <h5><%= SubjectDAO.getSubjectByTestId(test.getId()).getName() %></h5>
 		            <p><%=test.getName() %></p>
 		            <div>Ngày bắt đầu: <%=test.getDateOpen()+" "+test.getTimeOpen() %></div>
 		            <div>Ngày kết thúc: <%=test.getDateClose()+" "+test.getTimeClose() %></div>
 		            <div>Thời lượng: <%=test.getTimeLimit() %> phút</div><br>
-		            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
+		            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam?command=do&id=<%=test.getId() %>" role="button">Thi ngay &raquo;</a></p>
 		          	</div>
 	          	</div>
             <%} %>

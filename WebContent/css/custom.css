@@ -17,19 +17,12 @@
 }
 
 .form-exam {
-	overflow-y: scroll;
-	height:650px;
 }
 
 .congratulation{
 	width:300px;
 	height:200px;
 }
-
-.done{
-	background-color:#007BFF;
-	color:#fff;
-} 
 
 .test-box {
 	padding: 10px;
@@ -39,5 +32,28 @@
 	border: 1px solid gray;
 	border-radius: 5px;
 	padding-top: 10px;
+}
+
+.countdown-clock {
+	background-color: #343A40;
+	color: #fff;
+	font-size: 40px;
+	text-align: center;
+	margin: 2px;
+	border-radius: 5px;
+}
+
+.quiz-box {
+	background-color: #007BFF;
+	color: #fff;
+	text-align: center;
+	width: 45px;
+	border-radius: 3px;
+	padding: 10px;
+	margin: 1px;
+}
+
+.quiz-box a {
+	color: #fff;	
 }
 
