@@ -1,8 +1,10 @@
 
 var counter = 0;
-var timeleft = 15;
+var timeleft = 0;
 
 window.onload = function(){
+	timeleft = document.getElementById("timeLimit").value;
+	console.log(timeleft);
 	setup();
 };
 

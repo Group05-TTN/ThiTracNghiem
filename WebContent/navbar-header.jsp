@@ -25,7 +25,7 @@
           <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-success mr-sm-2" type="submit">Search</button>
-            <a class="btn btn-primary my-sm-2" href="/ThiTracNghiem/signin.jsp" role="button">Sign In</a>
+            <a class="btn btn-primary my-sm-2" href="/ThiTracNghiem/login.jsp" role="button">Login</a>
           </form>
         </div>
       </nav>

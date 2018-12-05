@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,22 +27,25 @@ public class QuizServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		System.out.println("Param: "+request.getParameter("command"));
-		request.setAttribute("dashbroadContent", "examinee-manager");
-//		RequestDispatcher rd;	
-		
+		boolean access = false;
+		for (Cookie cookie : request.getCookies()) {
+			if (cookie.getValue().equals("quizManager")){ 
+				access = true;
+			}
+		}
+		if(!access) {
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 		if(request.getParameter("command") != null) {
-			List<Subject> listSubject = SubjectDAO.getAllSubjects();
-			List<Section> listSection = SectionDAO.getAllSections();
 			switch(request.getParameter("command")) {
 			case "add":
-				request.setAttribute("listSubject", listSubject);
-				request.setAttribute("listSection", listSection);
 				request.getRequestDispatcher("add-quiz.jsp").forward(request, response);
 				break;
 			case "update":
 				int id = Integer.parseInt(request.getParameter("id"));
 				Quiz quiz = QuizDAO.getQuizById(id);
+				List<Subject> listSubject = SubjectDAO.getAllSubjects();
+				List<Section> listSection = SectionDAO.getAllSections();
 				List<Answer> listWrongAnswer = AnswerDAO.getWrongAnswersByQuizId(id);
 				Answer correctAnswer = AnswerDAO.getCorrectAnswerByQuizId(id);
 				request.setAttribute("listSubject", listSubject);
@@ -55,13 +59,11 @@ public class QuizServlet extends HttpServlet {
 				int quizid = Integer.parseInt(request.getParameter("id"));
 				QuizDAO.delete(quizid);
 				response.sendRedirect("/ThiTracNghiem/quiz");
-				System.out.println("DELETE QUIZ "+quizid);
+				System.out.println("DELETED QUIZ "+quizid);
 				break;
 			}
 		}
 		else {
-			List<Quiz> listQuiz = QuizDAO.getAllQuizzes();
-			request.setAttribute("listQuiz", listQuiz);
 			request.getRequestDispatcher("list-quiz.jsp").forward(request, response);
 		}	
 	}

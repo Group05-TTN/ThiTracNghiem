@@ -12,17 +12,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-           <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fa fa-home"></i>Home<span class="sr-only">(current)</span></a>
-            </li>
+            <% 
+            for (Cookie cookie : request.getCookies()) {
+				if (cookie.getName().equals("loginUser")){ %>
+				 <li class="nav-item active">
+      				<a class="nav-link" href=""><i class="fa fa-user"></i><%=cookie.getValue() %><span class="sr-only">(current)</span></a>
+    			</li>
+				<% }
+			}
+			%>
             <!-- Dropdown -->
 			<li class="nav-item dropdown">
 			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-			        <i class="fa fa-user"></i>
+			        <i class="fa fa-cog"></i>
 			      </a>
 			      <div class="dropdown-menu">
-			      	<a class="dropdown-item" href="#">Profile</a>
-			        <a class="dropdown-item" href="#">Logout</a>
+			        <a class="dropdown-item" href="logout.jsp">Logout</a>
 			      </div>
 			</li>
           </ul>

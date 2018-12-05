@@ -8,6 +8,8 @@ import com.vy.model.Quiz;
 
 public class QuizDAO {
 	
+	public QuizDAO () {}
+	
 	public static int add(Quiz quiz) {
 		int status = 0;
 		try {
@@ -143,6 +145,23 @@ public class QuizDAO {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				status = rs.getInt("maxid");
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return status;
+	}
+	
+	public static int getNumQuizOfSection(int id) {
+		int status = 0;
+		try {
+			Connection con = DBconnect.getConnection();
+			String query = "SELECT COUNT(*) AS COUNT FROM QUIZZES WHERE SECTIONID = ?";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				status = rs.getInt("count");
 			}
 		} catch (Exception e) {
 			System.out.println(e);

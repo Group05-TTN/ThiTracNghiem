@@ -13,7 +13,7 @@
 			<a href="/ThiTracNghiem/quiz" class="list-group-item list-group-item-action">
 				<i class="fas fa-quidditch"></i> Quản lý câu hỏi
 			</a>
-			<a href="/ThiTracNghiem/list-test.jsp" class="list-group-item list-group-item-action">
+			<a href="/ThiTracNghiem/test" class="list-group-item list-group-item-action">
 				<i class="fas fa-list-alt"></i> Quản lý đề thi
 			</a>
 			<a href="/ThiTracNghiem/list-class.jsp" class="list-group-item list-group-item-action">

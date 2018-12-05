@@ -1,164 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="com.vy.dao.QuizDAO"%>
+<%@page import="com.vy.dao.SubjectDAO,java.util.*"%>
+<%@page import="com.vy.dao.SectionDAO"%>
+<%@page import="com.vy.dao.TestDAO"%>
+<%@page import="com.vy.model.Subject" %>
+<%@page import="com.vy.model.Section" %>
+<%@page import="com.vy.model.Quiz" %>
+<%@page import="com.vy.model.Test" %>
 <!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
-
+	<%request.setCharacterEncoding("UTF-8");%>
+	<%
+	List<Subject> listSubject = SubjectDAO.getAllSubjects();
+	List<Test> listTest = TestDAO.getAllTests();
+	%>
     <jsp:include page="navbar-header.jsp"></jsp:include>
-
     <main role="main">
-
       <jsp:include page="carousel.jsp"></jsp:include>
-
       <div class="container marketing">
-
         <!-- Three columns of text below the carousel -->
         <div class="row">
         	<!-- /.col-lg-4 -->
-          <div class="col-md-3 test-box text-center">
-          	<div class="test-box-border">
-            <img class="rounded-circle" src="images/math2.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h3>Toán 1</h3>
-            <p>Kiển tra Hình học lần 1</p>
-            <div>Ngày bắt đầu: 20-10-2018 14:00</div>
-            <div>Ngày kết thúc: 20-10-2018 22:00</div>
-            <div>Thời lượng: 60:00</div><br>
-            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
-          	</div>
-          </div>
-          
-          <!-- /.col-lg-4 -->
-          
-          <div class="col-md-3 test-box text-center">
-         <div class="test-box-border">
-            <img class="rounded-circle" src="images/math4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h3>Toán 2</h3>
-            <p>Kiển tra Hình học lần 2</p>
-            <div>Ngày bắt đầu: 20-10-2018 14:00</div>
-            <div>Ngày kết thúc: 20-10-2018 22:00</div>
-            <div>Thời lượng: 60:00</div><br>
-            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
-          </div>
-          </div>
-          
-          <!-- /.col-lg-4 -->
-          
-          <div class="col-md-3 test-box text-center">
-          <div class="test-box-border">
-            <img class="rounded-circle" src="images/english1.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h3>Anh văn 1</h3>
-            <p>Kiển tra Anh văn 1 lần 1</p>
-           <div>Ngày bắt đầu: 20-10-2018 14:00</div>
-            <div>Ngày kết thúc: 20-10-2018 22:00</div>
-            <div>Thời lượng: 60:00</div><br>
-            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
-          </div>
-          </div>
-          
-          <!-- /.col-lg-4 -->
-          <div class="col-md-3 test-box text-center">
-          <div class="test-box-border">
-            <img class="rounded-circle" src="images/cntt4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h3>Tin học</h3>
-            <p>Kiển tra tin học cơ sở</p>
-            <div>Ngày bắt đầu: 20-10-2018 14:00</div>
-            <div>Ngày kết thúc: 20-10-2018 22:00</div>
-            <div>Thời lượng: 60:00</div><br>
-            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
-          </div>
-          </div>
-          
-          <!-- /.col-lg-4 -->
-          <div class="col-md-3 test-box text-center">
-          <div class="test-box-border">
-            <img class="rounded-circle" src="images/cntt4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h3>Tin học</h3>
-            <p>Kiển tra tin học cơ sở</p>
-            <div>Ngày bắt đầu: 20-10-2018 14:00</div>
-            <div>Ngày kết thúc: 20-10-2018 22:00</div>
-            <div>Thời lượng: 60:00</div><br>
-            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
-          </div>
-          </div>
-          
-          <!-- /.col-lg-4 -->
-          <div class="col-md-3 test-box text-center">
-          <div class="test-box-border">
-            <img class="rounded-circle" src="images/cntt4.jpg" alt="Generic placeholder image" width="140" height="140">
-            <h3>Tin học</h3>
-            <p>Kiển tra tin học cơ sở</p>
-            <div>Ngày bắt đầu: 20-10-2018 14:00</div>
-            <div>Ngày kết thúc: 20-10-2018 22:00</div>
-            <div>Thời lượng: 60:00</div><br>
-            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
-          </div>
-          </div>
-          
-          
-          
-          
+        	<%for(Test test:listTest){ %>
+	        	<div class="col-md-3 test-box text-center">
+		          	<div class="test-box-border">
+		            <img class="rounded-circle" src="images/cntt<%=test.getId()%12+5%>.jpg" alt="Generic placeholder image" width="140" height="140">
+		            <h3>Mon hoc</h3>
+		            <p><%=test.getName() %></p>
+		            <div>Ngày bắt đầu: <%=test.getDateOpen()+" "+test.getTimeOpen() %></div>
+		            <div>Ngày kết thúc: <%=test.getDateClose()+" "+test.getTimeClose() %></div>
+		            <div>Thời lượng: <%=test.getTimeLimit() %> phút</div><br>
+		            <p><a class="btn btn-secondary" href="/ThiTracNghiem/exam-student.jsp" role="button">Thi ngay &raquo;</a></p>
+		          	</div>
+	          	</div>
+            <%} %>
         </div> <!-- /.row -->
 		
 
-        <!-- START THE FEATURETTES -->
-
+        <!-- SHOW LIST SUBJECT -->
+		<%for(Subject subject : listSubject){ %>
         <hr class="featurette-divider">
 
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading">Toán học<span class="text-muted"></span></h2>
-            <p class="lead">Môn toán không giống như văn học có thể liên tưởng từ hiện tại đến quá khứ, 
-            	từ quá khứ lại bay bổng đến tương lai. Toán học là một chuỗi những bước có sự liên kết chặt chẽ 
-            	với nhau, muốn giải 1 bài bài toán gồm 3 bước chúng ta phải đi từng bước từ 1 đến 3 mới 
-            	có thể ra đáp án đúng nhưng nếu bạn ngại làm chỉ làm ngay đến bước 3 thì không bao giờ 
-            	có 1 kết quả chính xác. Vậy nên học toán giúp chúng ta có một tư duy logic tốt hơn.
-            </p>
+            <h2 class="featurette-heading"><%=subject.getName() %><span class="text-muted"></span></h2>
+            <p class="lead"><%=subject.getDescription() %></p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" src="images/math3.jpg" alt="Generic placeholder image">
+            <img class="featurette-image img-fluid mx-auto" src="images/cntt<%=subject.getId() %>.jpg" alt="Generic placeholder image">
           </div>
         </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Anh văn<span class="text-muted"></span></h2>
-            <p class="lead">
-            	Tiếng Anh là ngôn ngữ chính và phổ biến nhất trên thế giới, 
-            	có trên 67 nước dùng tiếng Anh làm ngôn ngữ chính hoặc là ngôn ngữ mẹ đẻ. 
-            	Con số này lớn hơn tất cả so với các ngôn ngữ khác.Học tiếng Anh thực sự có thể giúp 
-            	thăng tiến trong sự nghiệp và nó cũng giúp tăng độ tin cậy trong hồ sơ xin việc của bạn.
-            </p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" src="images/english7.jpg" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">Tin học<span class="text-muted"></span></h2>
-            <p class="lead">
-            	Tin học đã dược ứng dụng trong mọi lĩnh vực của đời sống và xã hội.
-            	Sự phát triển của các dạng máy tính , đặc biệt là internet , 
-            	làm cho việc ứng dụng tin học ngày càng phổ biến.
-            </p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" src="images/cntt2.png" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
+        <%} %>
         <!-- /END THE FEATURETTES -->
 
       </div><!-- /.container -->

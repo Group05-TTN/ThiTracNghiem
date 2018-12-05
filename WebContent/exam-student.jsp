@@ -20,11 +20,12 @@
 						<div class="list-group-item list-group-item-action">
 							<p>Môn: Toán học</p>
 							<p>Tên đề thi: Kiểm tra hình học lần 1 </p>
-							<p>Thời lượng: 30:00</p>
+							<p>Thời lượng: ... &nbsp phút</p>
 							<p>Số câu hỏi: 10</p>
 							<p>Thời gian bắt đầu: 20-10-2018 07:30</p>
 							<p>Thời gian kết thúc: 20-10-2018 22:00</p>
 							<p>Thời gian còn lại:</p><h2 class="text-center" id="timer-main"></h2>
+							<input type="hidden" id="timeLimit" value="20">
 						</div>
 					</div>
 					<button type="button" class="btn btn-primary btn-lg btn-block">Nộp bài</button>

@@ -65,7 +65,7 @@
 				    </div>
 				  </form>
 				  </div>
-				  <form action="test?command=add" method="POST">
+				  <form action="test?command=add&id=${test.id}" method="POST">
 					  <table class="table table-striped">
 					  <thead class="thead-light">
 					    <tr>
@@ -90,31 +90,31 @@
 					  <div class="form-group row">
 					    <label for="inputEmail3" class="col-sm-2 col-form-label">Tên đề thi:</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="testName">
+					      <input type="text" class="form-control" name="testName" value="${test.name }">
 					    </div>
 					  </div>
 					  <div class="form-group row">
 					    <label for="inputEmail3" class="col-sm-2 col-form-label">Thời lượng thi (phút):</label>
 					    <div class="col-sm-10">
-					      <input type="number" class="form-control" name="timeLimit" min="5" value="5">
+					      <input type="number" class="form-control" name="timeLimit" min="5" value="${test.timeLimit }">
 					    </div>
 					  </div>
 					  <div class="form-group row">
 					    <label for="inputEmail3" class="col-sm-2 col-form-label">Thời gian bắt đầu:</label>
 					    <div class="col-sm-5">
-					      <input type="date" name="dateOpen" max="3000-12-31" min="1000-01-01" class="form-control">
+					      <input type="date" name="dateOpen" max="3000-12-31" min="1000-01-01" class="form-control" value="${test.dateOpen }">
 					    </div>
 					    <div class="col-sm-5">
-					      <input type="time" name="timeOpen" max="23:59" min="00:00" class="form-control">
+					      <input type="time" name="timeOpen" max="23:59" min="00:00" class="form-control" value="${test.timeOpen}">
 					    </div>
 					  </div>
 					  <div class="form-group row">
 					    <label for="inputEmail3" class="col-sm-2 col-form-label">Thời gian kết thúc:</label>
 					    <div class="col-sm-5">
-					      <input type="date" name="dateClose" max="3000-12-31" min="1000-01-01" class="form-control">
+					      <input type="date" name="dateClose" max="3000-12-31" min="1000-01-01" class="form-control" value="${test.dateClose }">
 					    </div>
 					    <div class="col-sm-5">
-					      <input type="time" name="timeClose" max="23:59" min="00:00" class="form-control">
+					      <input type="time" name="timeClose" max="23:59" min="00:00" class="form-control" value="${test.timeOpen}">
 					    </div>
 					  </div>
 					  <div class="form-group row">
@@ -126,10 +126,10 @@
 					  <div class="form-group row">
 					    <label for="inputEmail3" class="col-sm-2 col-form-label">Số lần làm tối đa:</label>
 					    <div class="col-sm-10">
-					      <input type="number" name="maxSubmit" step="1"  min="1" max="500" value="1" class="form-control">
+					      <input type="number" name="maxSubmit" step="1"  min="1" max="500" value="${test.maxSubmit }" class="form-control">
 					    </div>
 					  </div>
-					  <button type="submit" class="btn btn-primary btn-block">Tạo đề thi</button>
+					  <button type="submit" class="btn btn-primary btn-block">Sửa đề thi</button>
 					  <a class="btn btn-secondary btn-block" href="/ThiTracNghiem/test" role="button">Thoát</a>
 				</form>
 		    </div>

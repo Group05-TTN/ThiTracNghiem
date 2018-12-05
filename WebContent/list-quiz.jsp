@@ -1,14 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="com.vy.dao.QuizDAO"%>
+<%@page import="com.vy.dao.SubjectDAO,java.util.*"%>
+<%@page import="com.vy.dao.SectionDAO"%>
+<%@page import="com.vy.model.Subject" %>
+<%@page import="com.vy.model.Section" %>
+<%@page import="com.vy.model.Quiz" %>
 <!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="header.jsp"></jsp:include>
 </head>
 <body>
-	<%@page import="com.vy.dao.QuizDAO,com.vy.dao.SubjectDAO,java.util.*"%>
 	<%request.setCharacterEncoding("UTF-8");%>
+	<%
+	List<Subject> listSubject = SubjectDAO.getAllSubjects();
+	List<Section> listSection = SectionDAO.getAllSections();
+	List<Quiz> listQuiz = QuizDAO.getAllQuizzes();
+	%>
 	<jsp:include page="test-header.jsp"></jsp:include>
     <main role="main">
     	<div class="container-fluid mt-dashbroad">
@@ -26,7 +36,7 @@
 		    	<table class="table table-striped">
 				  <thead class="thead-light">
 				    <tr>
-				      <th scope="col">STT</th>
+				      <th scope="col">ID</th>
 				      <th scope="col">Môn học</th>
 				      <th scope="col">Nội dung</th>
 				      <th scope="col">Level</th>
@@ -36,17 +46,17 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				  <c:forEach items="${listQuiz}" var="quiz" varStatus="loop">
-				    <tr>
-				      <th scope="row">${loop.index+1}</th>
-				      <td>${SubjectDAO.getSubjectByQuizId(quiz.id).name}</td>
-				      <td>${quiz.content}</td>
-				      <td>${quiz.level}</td>
-				      <td><a href="/ThiTracNghiem/quiz?command=update&id=${quiz.id}"><i class="far fa-eye"></i></a></td>
-				      <td><a href="/ThiTracNghiem/quiz?command=update&id=${quiz.id}"><i class="fa fa-edit"></i></a></td>
-				      <td><a href="/ThiTracNghiem/quiz?command=delete&id=${quiz.id}"><i class="fa fa-trash-alt"></i></a></td>
+				  <%for(Quiz quiz:listQuiz){ %>
+				  	<tr>
+				      <th scope="row"><%=quiz.getId() %></th>
+				      <td><%=SubjectDAO.getSubjectByQuizId(quiz.getId()).getName()%></td>
+				      <td><%=quiz.getContent() %></td>
+				      <td><%=quiz.getLevel() %></td>
+				      <td><a href="/ThiTracNghiem/quiz?command=update&id=<%=quiz.getId()%>"><i class="far fa-eye"></i></a></td>
+				      <td><a href="/ThiTracNghiem/quiz?command=update&id=<%=quiz.getId()%>"><i class="fa fa-edit"></i></a></td>
+				      <td><a href="/ThiTracNghiem/quiz?command=delete&id=<%=quiz.getId()%>"><i class="fa fa-trash-alt"></i></a></td>
 				    </tr>
-				  </c:forEach>
+				  <%} %>
 				  </tbody>
 				</table>
 				</form>
