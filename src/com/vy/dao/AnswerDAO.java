@@ -134,4 +134,25 @@ public class AnswerDAO {
 		}
 		return answer;
 	}
+	
+	public static Answer getAnswerById(int id) {
+		Answer answer = new Answer();
+		try {
+			Connection con = DBconnect.getConnection();
+			String query = "SELECT * FROM ANSWERS WHERE ID = ?";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				answer.setId(rs.getInt("id"));
+				answer.setContent(rs.getString("content"));
+				answer.setStatus(rs.getBoolean("status"));
+				answer.setQuizId(rs.getInt("quizId"));
+			}
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		return answer;
+	}
 }

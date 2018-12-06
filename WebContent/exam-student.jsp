@@ -20,7 +20,7 @@
 	<jsp:include page="test-header.jsp"></jsp:include>
     <main role="main">
     	<div class="container-fluid mt-dashbroad">
-		  <div class="row">
+		  <form class="row" action="exam?command=result&id=${test.id}" method="POST">
 		    <div class="col-md-3 mh-dashbroad">
 					<div class="list-group">
 						<div class="list-group-item list-group-item-action active">Mã đề thi: ${test.id }</div>
@@ -45,10 +45,10 @@
 							</div>
 						</div>
 						<br>
-						<button type="button" class="btn btn-primary btn-lg btn-block">Nộp bài</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block">Nộp bài</button>
 					</div>
 				</div>
-		    <div class="col-md-9 form-exam">
+		     <div class="col-md-9 form-exam">
 		    	<h2>Đề: ${test.name}</h2>
 		    	<hr>
 		    	<br>
@@ -60,26 +60,26 @@
 		    			<p><b>Câu hỏi <%=i+1 %>: &nbsp</b><%=listQuiz.get(i).getContent() %></p>
 				    	<div class="form-check">
 						  <label class="form-check-label">
-						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>A.</b>
-						    <%=listAnswer.get(k).getContent() %>
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>" 
+						    value="<%=listAnswer.get(k).getId() %>"><b>A.</b><%=listAnswer.get(k).getContent() %>
 						  </label>
 						</div>
 						<div class="form-check">
 						  <label class="form-check-label">
-						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>B.</b>
-						    <%=listAnswer.get(k+1).getContent() %>
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"
+						    value="<%=listAnswer.get(k+1).getId() %>"><b>B.</b><%=listAnswer.get(k+1).getContent() %>
 						  </label>
 						</div>
 						<div class="form-check">
 						  <label class="form-check-label">
-						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>C.</b>
-						    <%=listAnswer.get(k+2).getContent() %>
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"
+						    value="<%=listAnswer.get(k+2).getId() %>"><b>C.</b><%=listAnswer.get(k+2).getContent() %>
 						  </label>
 						</div>
 						<div class="form-check">
 						  <label class="form-check-label">
-						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"><b>D.</b>
-						    <%=listAnswer.get(k+3).getContent() %>
+						    <input type="radio" class="form-check-input" name="optradio<%=listQuiz.get(i).getId() %>"
+						    value=" <%=listAnswer.get(k+3).getId() %>"><b>D.</b><%=listAnswer.get(k+3).getContent() %>
 						  </label>
 						</div>
 						<hr>
@@ -106,7 +106,7 @@
 				  </ul>
 				</nav>
 		    </div>
-		  </div>
+		  </form>
 		  <!-- Modal -->
 			<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			  <div class="modal-dialog modal-dialog-centered" role="document">
