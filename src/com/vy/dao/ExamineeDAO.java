@@ -28,4 +28,22 @@ public class ExamineeDAO {
 		return list;
 	}
 	
+	public static Examinee getExamineeByUsername(String username) {
+		Examinee examinee = new Examinee();
+
+		try {
+			Connection con = DBconnect.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT * FROM EXAMINEES WHERE USERNAME = ?");
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				examinee.setId(rs.getInt("id"));
+				examinee.setUsername(rs.getString("username"));
+				examinee.setImage(rs.getString("image"));
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return examinee;
+	}
 }

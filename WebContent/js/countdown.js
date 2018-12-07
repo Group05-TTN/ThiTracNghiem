@@ -1,12 +1,6 @@
 
 var counter = 0;
 
-//window.onload = function(){
-//	let timeleft = document.getElementById("timeLimit").value;
-//	console.log(timeleft);
-//	setup(timeleft);
-//};
-
 $( document ).ready(function() {
 	let timeleft = document.getElementById("timeLimit").value * 60; // timeleft có đơn vị giây
 	console.log(timeleft);

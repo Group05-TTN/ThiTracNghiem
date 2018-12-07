@@ -12,20 +12,20 @@
 			<div class="row">
 				<div class="col-md-3 mh-dashbroad">
 					<div class="list-group">
-						<div class="list-group-item list-group-item-action active">Mã đề thi</div>
+						<div class="list-group-item list-group-item-action active">Mã đề thi ${test.id }</div>
 						<div class="list-group-item list-group-item-action">
-							<p>Môn: Toán học</p>
-							<p>Tên đề thi: Kiểm tra hình học lần 1 </p>
-							<p>Thời lượng: 30:00</p>
-							<p>Số câu hỏi: 10</p>
-							<p>Thời gian bắt đầu: 20-10-2018 07:30</p>
-							<p>Thời gian kết thúc: 20-10-2018 22:00</p>
+							<p>
+							Tên đề thi: ${test.name } <br>
+							Thời lượng: ${test.timeLimit } &nbsp phút<br>
+							Số câu hỏi: ${test.numQuiz }<br>
+							Thời gian bắt đầu: ${test.dateOpen} &nbsp ${test.timeOpen }<br>
+							Thời gian kết thúc: ${test.dateClose} &nbsp ${test.timeClose }</p>
 						</div>
 					</div>
 					<button type="button" class="btn btn-primary btn-lg btn-block">Trở về</button>
 				</div>
 				<div class="col-md-9">
-					<h2>Đề thi Toán 1</h2>
+					<h2>Đề: ${test.name}</h2>
 					<hr>
 					
 					<h3 class="text-justify text-center" >Bạn đã kết thúc bài thi </h3>
@@ -38,20 +38,18 @@
 					      <th scope="col">Tên đề thi</th>
 					      <th scope="col">Điểm/10</th>
 					      <th scope="col">Thời gian nộp</th>
-					      <th scope="col">Thời lượng</th>
-					      <th scope="col">Xem đề thi</th>
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td>MATH_TEST01</td>
-					      <td>Kiển tra Hình học lần 1</td>
-					      <td>8</td>
-					      <td>17:30</td>
-					      <td>30 phút</td>
-					      <td class="text-center"><a href="#"><i class="far fa-eye"></i></a></td>
-					    </tr>
+					  	<c:forEach items="${listResult}" var="result" varStatus="loop">
+					  		<tr>
+						      <th scope="row">${loop.index+1 }</th>
+						      <td>${test.id}</td>
+						      <td>${test.name}</td>
+						      <td>${result.scores}</td>
+						      <td>${result.timeEnd}</td>
+						    </tr>
+					  	</c:forEach>
 					  </tbody>
 					</table>
 				</div>
