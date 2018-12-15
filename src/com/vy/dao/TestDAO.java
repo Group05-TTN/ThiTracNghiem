@@ -189,4 +189,66 @@ public class TestDAO {
 		}
 		return status;
 	}
+	
+	public static List<Test> getTestsByClassId(int id) {
+		List<Test> list = new ArrayList<Test>();
+		try {
+			Connection con = DBconnect.getConnection();
+			String query = "SELECT * FROM TESTS T, TEST_CLASS C\r\n" + 
+					"WHERE T.ID = C.TESTID\r\n" + 
+					"AND C.CLASSID = ?";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Test test = new Test();
+				test.setId(rs.getInt("id"));
+				test.setName(rs.getString("name"));
+				test.setTestManagerId(rs.getInt("testManagerId"));
+				test.setTimeLimit(rs.getInt("timeLimit"));
+				test.setDateOpen(rs.getDate("timeOpen")+"");
+				test.setDateClose(rs.getDate("timeClose")+"");
+				test.setTimeOpen(rs.getTime("timeOpen")+"");
+				test.setTimeClose(rs.getTime("timeClose")+"");
+				test.setNumQuiz(rs.getInt("numQuiz"));
+				test.setPassword(rs.getString("password"));
+				test.setMaxSubmit(rs.getInt("maxSubmit"));
+				list.add(test);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return list;
+	}
+	
+	public static int addClassToTest(int classId,int testId) {
+		int status = 0;
+		try {
+			Connection con = DBconnect.getConnection();
+			String query = "INSERT INTO TEST_CLASS VALUES (?,?);";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, testId);
+			ps.setInt(2, classId);
+			status = ps.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return status;
+	}
+	
+	public static int deleteClassTest(int classId, int testId) {
+		int status = 0;
+		try {
+			Connection con = DBconnect.getConnection();
+			String query = "DELETE FROM TEST_CLASS WHERE CLASSID=? AND TESTID=?;";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setInt(1, classId);
+			ps.setInt(2, testId);
+			status = ps.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return status;
+	}
 }

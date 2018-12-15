@@ -32,16 +32,6 @@
 		    	</c:if>	
 		    	<form action="test?command=add" method="POST">
 				  <div class="form-row">
-				  	<div class="form-group col-md-4">
-				      <label for="inputEmail4">Lớp học</label>
-				      <select class="form-control" id="exampleFormControlSelect1">
-					      <option>Toán 1</option>
-					      <option>Toán 2</option>
-					      <option>Anh Văn 1</option>
-					      <option>Anh Văn 2</option>
-					      <option>Anh Văn 3</option>
-					  </select>
-				    </div>
 				    <input type="hidden" name="addSection" value="addSection">
 				    <div class="form-group col-md-4">
 				      <label for="inputPassword4">Phần môn học</label>

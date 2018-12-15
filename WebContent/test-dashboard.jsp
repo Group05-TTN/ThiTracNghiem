@@ -19,19 +19,9 @@
 			<a href="/ThiTracNghiem/list-class.jsp" class="list-group-item list-group-item-action">
 				<i class="fas fa-users"></i> Quản lý lớp học
 			</a>
-			<c:choose>
-				<c:when test="${param.dashbroadContent}">
-					<a href="/ThiTracNghiem/list-student.jsp" class="list-group-item list-group-item-action active">
-						<i class="fas fa-address-card"></i> Quản lý thí sinh
-					</a>
-				</c:when>
-				<c:otherwise>
-					<a href="/ThiTracNghiem/examinee-manager" class="list-group-item list-group-item-action ">
-						<i class="fas fa-address-card"></i> Quản lý thí sinh
-					</a>
-				</c:otherwise>
-			</c:choose>
-			<h1>${param.dashbroadContent}</h1>
+			<a href="/ThiTracNghiem/ListThiSinh" class="list-group-item list-group-item-action">
+				<i class="fas fa-address-card"></i> Quản lý thí sinh
+			</a>
 		</div>
 	</div>
 </body>

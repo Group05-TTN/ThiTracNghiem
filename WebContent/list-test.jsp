@@ -21,7 +21,8 @@
 		  <div class="row">
 		    <jsp:include page="test-dashboard.jsp"></jsp:include>
 		    <div class="col-md-9">
-		    	<a class="btn btn-primary float-right" href="/ThiTracNghiem/test?command=add" role="button">Tạo đề thi</a>
+				<a class="btn btn-primary float-right" href="/ThiTracNghiem/test?command=add-test-class" role="button">Gán đề thi vô lớp học</a>
+		    	<a class="btn btn-primary float-right" href="/ThiTracNghiem/test?command=add" role="button" style="margin-right:10px">Tạo đề thi</a>
 		    	<h2>Danh sách đề thi</h2>
 		    	<hr>
 		    	<div class="form-group col-md-3">

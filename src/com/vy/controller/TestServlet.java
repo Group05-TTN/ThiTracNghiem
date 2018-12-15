@@ -86,6 +86,16 @@ public class TestServlet extends HttpServlet {
 				request.setAttribute("selectedSections", selectedSections);
 				request.getRequestDispatcher("add-test.jsp").include(request, response);
 				break;
+			case "add-test-class":
+				request.getRequestDispatcher("add-test-class.jsp").forward(request, response);
+				break;
+			case "delete-test-class":
+				int classId = Integer.parseInt(request.getParameter("classId"));
+				int testId = Integer.parseInt(request.getParameter("testId"));
+				System.out.println(classId + " - " + testId);
+				TestDAO.deleteClassTest(classId, testId);
+				response.sendRedirect("/ThiTracNghiem/test?command=add-test-class");
+				break;
 			}
 		}
 		else {
@@ -96,8 +106,14 @@ public class TestServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		ArrayList<String> errors = new ArrayList<String>();
-			if(request.getParameter("command") != null) {	
-				if(request.getParameter("addSection")!=null) {
+			if(request.getParameter("command") != null) {
+				if(request.getParameter("command").equals("add-test-class")) {
+					int classId = Integer.parseInt(request.getParameter("selectClass"));
+					int testId = Integer.parseInt(request.getParameter("selectTest"));
+					TestDAO.addClassToTest(classId, testId);
+					request.getRequestDispatcher("add-test-class.jsp").forward(request, response);
+					return;
+				}else if(request.getParameter("addSection")!=null) {
 					int sectionId = Integer.parseInt(request.getParameter("selectSection"));
 					for (Test_Section section : selectedSections) {
 						if (section.getSectionId() == sectionId){

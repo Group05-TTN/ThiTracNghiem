@@ -54,6 +54,7 @@ public class ExamServlet extends HttpServlet {
 		}
 		if(!access) {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+			//response.sendRedirect("index.jsp");
 		}
 		
 		request.setCharacterEncoding("UTF-8");

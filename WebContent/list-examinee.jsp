@@ -17,8 +17,8 @@
 		    	<jsp:param name="dashbroadContent" value="${dashbroadContent}" />
 		    </jsp:include>
 		    <div class="col-md-9">
-		    	<a class="btn btn-primary float-right" href="/ThiTracNghiem/add-student.jsp" role="button">Thêm sinh viên</a>
-		    	<h2>Danh sách sinh viên</h2>
+		    	<a class="btn btn-primary float-right" href="/ThiTracNghiem/add-student.jsp" role="button">Thêm thí sinh</a>
+		    	<h2>Danh sách thí sinh</h2>
 		    	<hr>
 		    	<table class="table table-striped">
 				  <thead class="thead-light">

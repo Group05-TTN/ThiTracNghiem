@@ -23,7 +23,7 @@
 		  <div class="row">
 		    <jsp:include page="test-dashboard.jsp"></jsp:include>
 		    <div class="col-md-9">
-		    	<h2>Tạo đề thi</h2>
+		    	<h2>Sửa đề thi</h2>
 		    	<hr>
 		    	<c:if test="${errors!=null && errors.size()>0}">
 			    	<c:forEach items="${errors}" var="error" >
